@@ -1,11 +1,18 @@
 using System.Reflection;
+using EShop.Infrastructure.Data;
 using EShop.Web;
 using EShop.Web.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<EShopDbContext>(options => 
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")   
+    )    
+);
 
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(MappingProfile)));
 builder.Services.AddCoreServices(builder.Configuration);
