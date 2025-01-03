@@ -1,9 +1,10 @@
 ﻿using EShop.Core.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Infrastructure.Data;
 
-public class EShopDbContext(DbContextOptions<EShopDbContext> options) : DbContext(options)
+public class EShopDbContext(DbContextOptions<EShopDbContext> options) : IdentityDbContext<ApplicationUser>(options)
 {
     public DbSet<Catalog> Catalogs { get; set; }
     public DbSet<CatalogItem> CatalogItems { get; set; }
