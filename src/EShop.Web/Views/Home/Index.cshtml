@@ -2,7 +2,105 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container">
+        <h1 class="display-4 mb-4">Welcome to Our Shop</h1>
+        <p class="lead mb-4">Discover amazing products at great prices</p>
+        <button class="btn btn-custom btn-lg">Shop Now</button>
+    </div>
 </div>
+
+@* <!-- Featured Categories -->
+<section class="container mb-5">
+    <h2 class="text-center mb-4">Featured Categories</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h5>Electronics</h5>
+                <p class="text-muted">Latest gadgets</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h5>Fashion</h5>
+                <p class="text-muted">Trending styles</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h5>Home & Garden</h5>
+                <p class="text-muted">Decor & more</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-futbol"></i>
+                </div>
+                <h5>Sports</h5>
+                <p class="text-muted">Equipment & gear</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="container">
+    <h2 class="text-center mb-4">Featured Products</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="product-card">
+                <img src="/api/placeholder/300/300" alt="Product" class="product-img mb-3">
+                <h5>Wireless Earbuds</h5>
+                <p class="text-muted">Premium sound quality</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="price">$99.99</span>
+                    <button class="btn btn-custom">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-card">
+                <img src="/api/placeholder/300/300" alt="Product" class="product-img mb-3">
+                <h5>Smart Watch</h5>
+                <p class="text-muted">Track your fitness</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="price">$199.99</span>
+                    <button class="btn btn-custom">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-card">
+                <img src="/api/placeholder/300/300" alt="Product" class="product-img mb-3">
+                <h5>Laptop Backpack</h5>
+                <p class="text-muted">Water resistant</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="price">$49.99</span>
+                    <button class="btn btn-custom">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-card">
+                <img src="/api/placeholder/300/300" alt="Product" class="product-img mb-3">
+                <h5>Coffee Maker</h5>
+                <p class="text-muted">Premium brewing</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="price">$79.99</span>
+                    <button class="btn btn-custom">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div> *@
+</section>
