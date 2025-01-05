@@ -6,19 +6,16 @@
 	<title>@ViewData["Title"] - EShop.Web</title>
 	<script type="importmap"></script>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css"/>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <style>
+
+	<style>
         body {
-			background: linear-gradient(45deg, #ffa100, #ffc);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
-		.custom-gradient {
-			background: linear-gradient(45deg, #ffa500, #ffc000);
-		}
 
         .custom-card {
             background: white;
@@ -67,7 +64,7 @@
         }
     </style>
 </head>
-<body>
+<body class="custom-gradient-light">
 	<div class="custom-card">
 		<div class="text-center mb-1">
             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
