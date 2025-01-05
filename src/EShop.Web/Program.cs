@@ -21,23 +21,27 @@ builder.Services.AddDbContext<EShopDbContext>(options =>
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
-
     options.Password.RequireDigit = false;
     options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
     options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 6;               
-    options.Password.RequiredUniqueChars = 0;          
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 0;
 })
-.AddEntityFrameworkStores<EShopDbContext>();
+.AddRoles<IdentityRole<string>>()
+.AddEntityFrameworkStores<EShopDbContext>()
+.AddDefaultTokenProviders();
 
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(MappingProfile)));
+builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddCoreServices(builder.Configuration);
-
-
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    await scope.InitializeScope();
+}
 
 
 // Configure the HTTP request pipeline.
