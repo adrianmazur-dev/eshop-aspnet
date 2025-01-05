@@ -6,14 +6,15 @@
     Layout = "~/Areas/Identity/Pages/_AuthLayout.cshtml";
 }
 
-<form>
+<form asp-route-returnUrl="@Model.ReturnUrl" method="post">
 	<div class="mb-3">
 		<div class="input-group">
 			<span class="input-group-text custom-gradient text-white">
 				<i class="bi bi-person-circle"></i>
 			</span>
-			<input type="email" class="form-control" placeholder="Email">
+			<input asp-for="Input.Email" class="form-control" autocomplete="email" aria-required="true" placeholder="Email" />
 		</div>
+		<span asp-validation-for="Input.Email" class="text-danger"></span>
 	</div>
     
 	<div class="mb-3">
@@ -21,8 +22,9 @@
 			<span class="input-group-text custom-gradient text-white">
 				<i class="bi bi-key-fill"></i>
 			</span>
-			<input type="password" class="form-control" placeholder="Password">
+			<input asp-for="Input.Password" class="form-control" autocomplete="password" aria-required="true" placeholder="Password" />
 		</div>
+		<span asp-validation-for="Input.Password" class="text-danger"></span>
 		<div class="text-end mt-1">
 			<a href="#" class="text-decoration-none text-muted small">Forgot password?</a>
 		</div>

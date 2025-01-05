@@ -18,7 +18,8 @@ public class CatalogItemConfiguration : IEntityTypeConfiguration<CatalogItem>
             .IsRequired(false);
 
         builder.Property(e => e.Price)
-            .IsRequired(false)
+            .IsRequired(true)
+            .HasDefaultValue(0)
             .HasColumnType("decimal(18,2)");
 
         builder.HasOne(e => e.Catalog)
