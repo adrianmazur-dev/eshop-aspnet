@@ -14,7 +14,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<EShopDbContext>(options => 
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("EShopConnection")   
+        builder.Configuration.GetConnectionString("EShopDbContextConnection")   
     )    
 );
 

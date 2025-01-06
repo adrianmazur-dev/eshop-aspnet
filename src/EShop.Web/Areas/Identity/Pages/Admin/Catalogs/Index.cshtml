@@ -1,0 +1,42 @@
+﻿@page
+@model EShop.Web.Areas.Identity.Pages.Admin.Catalogs.IndexModel
+@{
+    ViewData["Title"] = "Catalogs";
+
+    var catalogIndex = 1;
+}
+
+<nav class="mb-4">
+	<a asp-page="./Create" class="btn btn-primary"><i class="bi bi-plus"></i></a>
+</nav>
+
+<table class="table table-bordered table-responsive-xl table-list">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Catalogs)
+        {
+	        <tr class="row-item">
+		        <th scope="row">@catalogIndex</th>
+		        @{catalogIndex++;}
+
+		        <td>@item.Name</td>
+		        <td>@item.Description</td>
+		        <td class="table-cell-actions">
+			        <span class="table-actions">
+				        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-secondary"><i class="bi bi-pencil-fill"></i></a>
+				        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" class="d-inline">
+					        <button type="submit" class="btn btn-secondary"><i class="bi bi-trash-fill"></i></button>
+				        </form>
+			        </span>
+		        </td>
+	        </tr>
+        }
+    </tbody>
+</table>

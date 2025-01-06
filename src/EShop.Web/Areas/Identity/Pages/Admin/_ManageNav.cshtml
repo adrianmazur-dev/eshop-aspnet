@@ -1,4 +1,5 @@
-﻿@using EShop.Core.Entities
-<ul class="nav nav-pills flex-column">
-    <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="home" asp-page="./Index">Home</a></li>
+﻿<ul class="nav nav-pills flex-column">
+	<li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="home" asp-page="/Admin/Index">Home</a></li>
+	<li class="nav-item"><a class="nav-link @ManageNavPages.ItemsNavClass(ViewContext)" id="items" asp-page="/Admin/Items/Index">Items</a></li>
+	<li class="nav-item"><a class="nav-link @ManageNavPages.CatalogsNavClass(ViewContext)" id="catalogs" asp-page="/Admin/Catalogs/Index">Catalogs</a></li>
 </ul>

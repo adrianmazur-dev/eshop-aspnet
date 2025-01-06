@@ -26,5 +26,11 @@ namespace EShop.Web.Areas.Identity.Pages.Admin.Product
             CatalogItems = items.ToList();
             return Page();
         }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            await _catalogItemService.DeleteAsync(id);
+            return RedirectToPage();
+        }
     }
 }

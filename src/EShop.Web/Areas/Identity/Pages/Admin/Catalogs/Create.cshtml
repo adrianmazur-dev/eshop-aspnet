@@ -1,0 +1,33 @@
+﻿@page
+@model EShop.Web.Areas.Identity.Pages.Admin.Catalogs.CreateModel
+@{
+	ViewData["Title"] = "Create Catalog";
+}
+
+<form method="post">
+	<div class="form-group">
+		<label asp-for="Input.Name" class="control-label"></label>
+		<input asp-for="Input.Name" class="form-control" />
+		<span asp-validation-for="Input.Name" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Input.Description" class="control-label"></label>
+		<input asp-for="Input.Description" class="form-control" />
+		<span asp-validation-for="Input.Description" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Input.ParentCatalogId" class="control-label"></label>
+		<select asp-for="Input.ParentCatalogId" class="form-control" asp-items="@(ViewData["Catalogs"] as SelectList)">
+			<option value=""> -- Select Parent Catalog -- </option>
+		</select>
+		<span asp-validation-for="Input.ParentCatalogId" class="text-danger"></span>
+	</div>
+	<div class="form-group mt-2">
+		<button type="submit" class="btn btn-primary">Create</button>
+		<a asp-page="./Index" class="btn btn-primary">Back to List</a>
+	</div>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

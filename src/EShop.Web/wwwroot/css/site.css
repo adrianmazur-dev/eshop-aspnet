@@ -63,6 +63,15 @@ body {
     transition: all 0.3s;
 }
 
+.btn-secondary {
+    background: linear-gradient(45deg, #ffffff, #ffa500);
+    border: none;
+    color: #333;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
 .nav-pills .nav-link {
     color: #333;
 }
@@ -80,4 +89,19 @@ body {
     border: 1px solid lightgrey;
     border-radius: 10px;
     padding: 25px;
+}
+
+.table-list .row-item .table-actions {
+    display: none;
+}
+
+.table-list .row-item:hover .table-actions {
+    display: flex;
+    max-width: 100%;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.table-cell-actions {
+    width: 100px;
 }
