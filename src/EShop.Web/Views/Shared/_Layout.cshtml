@@ -10,6 +10,48 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/layout.css"/>
     <link rel="stylesheet" href="~/EShop.Web.styles.css" asp-append-version="true" />
+	
+    <style>
+		.dropdown-submenu {
+			position: relative;
+		}
+
+		.dropdown-submenu .dropdown-menu {
+			top: -30%;
+			left: 100%;
+		}
+
+		/* Pokazuj podmenu przy najechaniu */
+		.dropdown-submenu:hover > .dropdown-menu {
+			display: flex;
+			flex-direction: column;
+		}
+
+		/* Styl dla strzałki w podmenu */
+		.dropdown-submenu .dropdown-toggle::after {
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			margin-top: -4px;
+		}
+
+		.multi-column {
+			min-width: 400px; /* Możesz dostosować szerokość */
+		}
+
+		.multi-column .row {
+			margin: 0;
+			padding: 10px;
+		}
+
+		.multi-column .list-unstyled {
+			margin-bottom: 0;
+		}
+
+		.multi-column .dropdown-item {
+			padding: .25rem 1.5rem;
+		}
+</style>
 </head>
 <body>
 	<header>
@@ -24,23 +66,7 @@
 	                </button>
 
 	                <div class="collapse navbar-collapse" id="navbarNav">
-	                    <ul class="navbar-nav me-auto">
-	                        <li class="nav-item">
-	                            <a class="nav-link active" href="#">Home</a>
-	                        </li>
-	                        <li class="nav-item dropdown">
-	                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-	                                Categories
-	                            </a>
-	                            <ul class="dropdown-menu">
-	                                <li><a class="dropdown-item" href="#">Electronics</a></li>
-	                                <li><a class="dropdown-item" href="#">Fashion</a></li>
-	                                <li><a class="dropdown-item" href="#">Home & Garden</a></li>
-	                                <li><a class="dropdown-item" href="#">Sports</a></li>
-	                            </ul>
-	                        </li>
-	                    </ul>
-
+		                <partial name="_NavbarMenu"/>
 	                    <div class="d-flex align-items-center">
 							<a href="#" class="text-decoration-none">
 								<i class="bi bi-heart-fill nav-icon"></i>
