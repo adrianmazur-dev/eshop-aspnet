@@ -90,18 +90,3 @@
     font-weight: bold;
     font-size: 1.2rem;
 }
-
-.btn-custom {
-    background: linear-gradient(45deg, #ffffff, #ffa500);
-    border: none;
-    color: #333;
-    padding: 0.5rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 500;
-    transition: all 0.3s;
-}
-
-.btn-custom:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}

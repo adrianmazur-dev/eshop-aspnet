@@ -1,0 +1,37 @@
+﻿@page
+@model EShop.Web.Areas.Identity.Pages.Admin.Product.IndexModel
+@{
+    ViewData["Title"] = "Products";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<nav>
+    <button class="btn">Add</button>
+</nav>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CatalogItems)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Price</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

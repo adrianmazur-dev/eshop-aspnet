@@ -4,7 +4,7 @@ namespace EShop.Core.Interfaces.Services;
 
 public interface ICatalogItemService
 {
-    public Task<IEnumerable<CatalogItem>> GetAllAsync();
+    public Task<IReadOnlyList<CatalogItem>> GetAllAsync();
     public Task<CatalogItem?> GetByIdAsync(int id);
 
     public Task AddAsync(CatalogItem catalogItem);

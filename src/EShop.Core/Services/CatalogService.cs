@@ -6,7 +6,7 @@ namespace EShop.Core.Services;
 
 public class CatalogService(ICatalogRepository catalogRepository) : ICatalogService
 {
-    public async Task<IEnumerable<Catalog>> GetAllAsync()
+    public async Task<IReadOnlyList<Catalog>> GetAllAsync()
     {
         return await catalogRepository.GetAllAsync();
     }
