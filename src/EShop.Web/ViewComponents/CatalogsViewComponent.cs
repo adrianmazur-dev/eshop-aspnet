@@ -12,10 +12,10 @@ namespace EShop.Web.ViewComponents
             _catalogService = catalogService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string viewName = "Default")
         {
             var catalogs = await _catalogService.GetAllAsync();
-            return View("Default", catalogs);
+            return View(viewName, catalogs);
         }
     }
 }

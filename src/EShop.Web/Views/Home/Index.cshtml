@@ -5,55 +5,20 @@
 <!-- Hero Section -->
 <div class="hero-section">
     <div class="container">
-        <h1 class="display-4 mb-4">Welcome to Our Shop</h1>
+        <h1 class="display-4 mb-4">Welcome to <strong>EShop!</strong></h1>
         <p class="lead mb-4">Discover amazing products at great prices</p>
-        <button class="btn btn-custom btn-lg">Shop Now</button>
+        <a href="@Url.Action("Index", "Catalog")" class="btn btn-custom btn-lg">Shop Now</a>
     </div>
 </div>
 
-@* <!-- Featured Categories -->
-<section class="container mb-5">
-    <h2 class="text-center mb-4">Featured Categories</h2>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fas fa-laptop"></i>
-                </div>
-                <h5>Electronics</h5>
-                <p class="text-muted">Latest gadgets</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fas fa-tshirt"></i>
-                </div>
-                <h5>Fashion</h5>
-                <p class="text-muted">Trending styles</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h5>Home & Garden</h5>
-                <p class="text-muted">Decor & more</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fas fa-futbol"></i>
-                </div>
-                <h5>Sports</h5>
-                <p class="text-muted">Equipment & gear</p>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="container my-5">
+	<h2 class="text-center mb-4">Featured Catalogs</h2>
+	<div class="row g-4">
+		@await Component.InvokeAsync("Catalogs", new { viewName = "Featured" })
+	</div>
+</div>
 
+@*
 <!-- Featured Products -->
 <section class="container">
     <h2 class="text-center mb-4">Featured Products</h2>

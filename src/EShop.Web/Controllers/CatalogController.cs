@@ -1,4 +1,5 @@
 ﻿using EShop.Core.Interfaces.Services;
+using EShop.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EShop.Web.Controllers
@@ -14,10 +15,34 @@ namespace EShop.Web.Controllers
             _catalogItemService = catalogItemService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(CatalogFilterViewModel filter)
         {
             var items = await _catalogItemService.GetAllAsync();
-            return View(items);
+            var catalogs = await _catalogService.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(filter.SearchName))
+            {
+                items = items.Where(i => i.Name.Contains(filter.SearchName, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            if (filter.CatalogIds.Count > 0)
+            {
+                items = items.Where(i => filter.CatalogIds.Contains(i.CatalogId)).ToList();
+            }
+
+            if (filter.MinPrice.HasValue)
+            {
+                items = items.Where(i => i.Price >= filter.MinPrice.Value).ToList();
+            }
+
+            if (filter.MaxPrice.HasValue)
+            {
+                items = items.Where(i => i.Price <= filter.MaxPrice.Value).ToList();
+            }
+
+            filter.Items = items.ToList();
+            ViewData["Catalogs"] = catalogs;
+            return View(filter);
         }
     }
 }

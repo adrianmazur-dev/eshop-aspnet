@@ -8,7 +8,7 @@
             Categories
         </a>
         <ul class="dropdown-menu">
-            @await Component.InvokeAsync("Catalogs")
+            @await Component.InvokeAsync("Catalogs", new { viewName = "Default" })
         </ul>
     </li>
 </ul>

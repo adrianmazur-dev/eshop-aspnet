@@ -1,0 +1,27 @@
+﻿@model IEnumerable<EShop.Core.Entities.Catalog>
+@{
+	var limit = 4;
+}
+
+@if (!Model?.Any() ?? true)
+{
+	return;
+}
+
+@foreach (var catalog in Model)
+{
+	@if (limit-- <= 0)
+	{
+		break;
+	}
+
+	<div class="col-lg-3 col-md-6">
+		<div class="category-card">
+			<div class="category-icon">
+				@* <i class="bi bi-trophy"></i> *@
+			</div>
+			<h3 class="category-title">@catalog.Name</h3>
+			<a href="@Url.Action("Index", "Catalog")" class="stretched-link"></a>
+		</div>
+	</div>
+}
