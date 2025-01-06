@@ -1,0 +1,62 @@
+﻿@model List<EShop.Core.Entities.CatalogItem>
+
+@* @foreach (var item in Model)
+{
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">@item.Name</h5>
+			<p class="card-text">@item.Description</p>
+			<p class="card-text">Price: @item.Price</p>
+			<a href="#" class="btn btn-primary">Add to Cart</a>
+		</div>
+	</div>
+} *@
+	
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="bg-light p-4 text-center">
+	                    <i class="bi bi-image text-muted" style="font-size: 6rem;"></i>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@item.Name</h5>
+                        @* <p class="card-text flex-grow-1">@(item.Description?.Length > 100 ? item.Description.Substring(0, 97) + "..." : item.Description)</p> *@
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="h5 mb-0 text-primary">@item.Price.ToString("C")</span>
+                            <button class="btn btn-outline-primary" onclick="addToCart(@item.Id)">
+                                <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <small class="text-muted">
+                            @if (0 > 0)
+                            {
+                                <span class="text-success">
+                                    <i class="fas fa-check-circle me-1"></i>In Stock
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">
+                                    <i class="fas fa-times-circle me-1"></i>Out of Stock
+                                </span>
+                            }
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    function addToCart(productId) {
+        // Tutaj dodaj logikę dodawania do koszyka
+        console.log('Adding product ID:', productId);
+    }
+</script>
+

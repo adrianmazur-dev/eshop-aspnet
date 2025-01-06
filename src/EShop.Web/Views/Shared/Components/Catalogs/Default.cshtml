@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EShop.Core.Entities.Catalog>
+
+@if (!Model?.Any() ?? true)
+{
+	return;
+}
+
+@foreach (var catalog in Model)
+{
+	@if (catalog.ParentCatalogId != null)
+	{
+		continue;
+	}
+
+	@if (catalog.SubCatalogs.Any())
+	{
+		<li class="dropdown-submenu dropend">
+			<a class="dropdown-item dropdown-toggle" href="@Url.Action("Index", "Catalog")">
+				@catalog.Name
+			</a>
+			<ul class="dropdown-menu multi-column">
+				<div class="row">
+					@foreach (var subCatalog in catalog.SubCatalogs)
+					{
+						<ul class="col-md-6 list-unstyled">
+							<li><a class="dropdown-item" href="@Url.Action("Index", "Catalog")">
+								@subCatalog.Name
+							</a></li>
+						</ul>
+					}
+				</div>
+			</ul>
+		</li>
+	}
+	else
+	{
+		<li>
+			<a class="dropdown-item" href="@Url.Action("Index", "Catalog")">
+				@catalog.Name
+			</a>
+		</li>
+	}
+}
+
+<li><hr class="dropdown-divider"></li>
+<li>
+	<a class="dropdown-item" href="@Url.Action("Index", "Catalog")">
+		All Categories
+	</a>
+</li>

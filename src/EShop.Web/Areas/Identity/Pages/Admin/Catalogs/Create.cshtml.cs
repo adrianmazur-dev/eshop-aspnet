@@ -26,7 +26,7 @@ namespace EShop.Web.Areas.Identity.Pages.Admin.Catalogs
             public string Name { get; set; }
 
             [Display(Name = "Description")]
-            public string Description { get; set; }
+            public string? Description { get; set; }
 
             [Display(Name = "Parent Catalog")]
             public int? ParentCatalogId { get; set; }

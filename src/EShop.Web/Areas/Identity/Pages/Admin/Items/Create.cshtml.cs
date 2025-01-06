@@ -28,10 +28,11 @@ namespace EShop.Web.Areas.Identity.Pages.Admin.Items
             public string Name { get; set; }
 
             [Display(Name = "Description")]
-            public string Description { get; set; }
+            public string? Description { get; set; }
 
             [Required]
             [Display(Name = "Price")]
+            [Range(0.01, double.MaxValue, ErrorMessage = "The field Price must be a number.")]
             public decimal Price { get; set; }
 
             [Required]
@@ -52,6 +53,8 @@ namespace EShop.Web.Areas.Identity.Pages.Admin.Items
         {
             if (!ModelState.IsValid)
             {
+                var catalogs = await _catalogService.GetAllAsync();
+                ViewData["Catalogs"] = new SelectList(catalogs, "Id", "Name");
                 return Page();
             }
 

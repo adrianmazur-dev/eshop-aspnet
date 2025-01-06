@@ -15,6 +15,7 @@ public static class ConfigureCoreServices
 
         services.AddScoped<ICatalogItemService, CatalogItemService>();
         services.AddScoped<ICatalogService, CatalogService>();
+
         return services;
     }
 }

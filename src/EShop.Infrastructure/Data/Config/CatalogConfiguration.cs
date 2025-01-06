@@ -13,7 +13,9 @@ public class CatalogConfiguration : IEntityTypeConfiguration<Catalog>
         builder.Property(e => e.Name)
             .IsRequired(true)
             .HasMaxLength(50);
-        builder.Property(e => e.Description);
+
+        builder.Property(e => e.Description)
+            .IsRequired(false);
 
         builder.HasOne(e => e.ParentCatalog)
             .WithMany(e => e.SubCatalogs)

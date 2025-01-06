@@ -10,88 +10,65 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/layout.css"/>
     <link rel="stylesheet" href="~/EShop.Web.styles.css" asp-append-version="true" />
-	
-    <style>
-		.dropdown-submenu {
-			position: relative;
-		}
-
-		.dropdown-submenu .dropdown-menu {
-			top: -30%;
-			left: 100%;
-		}
-
-		/* Pokazuj podmenu przy najechaniu */
-		.dropdown-submenu:hover > .dropdown-menu {
-			display: flex;
-			flex-direction: column;
-		}
-
-		/* Styl dla strzałki w podmenu */
-		.dropdown-submenu .dropdown-toggle::after {
-			position: absolute;
-			right: 10px;
-			top: 50%;
-			margin-top: -4px;
-		}
-
-		.multi-column {
-			min-width: 400px; /* Możesz dostosować szerokość */
-		}
-
-		.multi-column .row {
-			margin: 0;
-			padding: 10px;
-		}
-
-		.multi-column .list-unstyled {
-			margin-bottom: 0;
-		}
-
-		.multi-column .dropdown-item {
-			padding: .25rem 1.5rem;
-		}
-</style>
 </head>
 <body>
 	<header>
-	        <nav class="navbar navbar-expand-lg sticky-top custom-gradient-light">
-	            <div class="container">
-	                <a class="navbar-brand" href="#">
-	                    <img src="~/images/full-logoBA.png" alt="Logo" class="img-fluid" width="200px">
-	                </a>
+		<nav class="navbar navbar-expand-lg sticky-top custom-gradient-light">
+			<div class="container">
+				<a class="navbar-brand" href="@Url.Action("Index", "Home")">
+					<img src="~/images/full-logoBA.png" alt="Logo" class="img-fluid" width="200px">
+				</a>
 
-	                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-	                    <span class="navbar-toggler-icon"></span>
-	                </button>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-	                <div class="collapse navbar-collapse" id="navbarNav">
-		                <partial name="_NavbarMenu"/>
-	                    <div class="d-flex align-items-center">
-							<a href="#" class="text-decoration-none">
-								<i class="bi bi-heart-fill nav-icon"></i>
-		                    </a>
-		                    <a href="#" class="text-decoration-none">
-			                    <i class="bi bi-bag-fill nav-icon"></i>
-		                    </a>
-		                    <partial name="_LoginPartial"/>
-	                    </div>
-	                </div>
-	            </div>
-	        </nav>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<partial name="_NavbarMenu"/>
+					<div class="d-flex align-items-center">
+						<a href="#" class="text-decoration-none">
+							<i class="bi bi-heart-fill nav-icon"></i>
+						</a>
+						<a href="#" class="text-decoration-none">
+							<i class="bi bi-bag-fill nav-icon"></i>
+						</a>
+						<partial name="_LoginPartial"/>
+					</div>
+				</div>
+			</div>
+		</nav>
 	</header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-	<footer class="footer">
+	<footer class="footer custom-gradient-light">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<h5>Quick Links</h5>
-					<ul class="list-unstyled ">
+					<ul class="list-unstyled">
+						<li><a href="#" class="text-decoration-none">Contact Us</a></li>
+						<li><a href="#" class="text-decoration-none">Shipping Info</a></li>
+						<li><a href="#" class="text-decoration-none">Returns Policy</a></li>
+						<li><a href="#" class="text-decoration-none">FAQs</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h5>Quick Links</h5>
+					<ul class="list-unstyled">
+						<li><a href="#" class="text-decoration-none">Contact Us</a></li>
+						<li><a href="#" class="text-decoration-none">Shipping Info</a></li>
+						<li><a href="#" class="text-decoration-none">Returns Policy</a></li>
+						<li><a href="#" class="text-decoration-none">FAQs</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h5>Quick Links</h5>
+					<ul class="list-unstyled">
 						<li><a href="#" class="text-decoration-none">Contact Us</a></li>
 						<li><a href="#" class="text-decoration-none">Shipping Info</a></li>
 						<li><a href="#" class="text-decoration-none">Returns Policy</a></li>
