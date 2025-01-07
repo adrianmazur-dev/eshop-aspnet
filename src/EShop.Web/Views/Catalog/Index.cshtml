@@ -71,8 +71,8 @@
 						<p class="card-text flex-grow-1">@(item.Description?.Length > 100 ? item.Description.Substring(0, 97) + "..." : item.Description)</p>
 						<div class="d-flex justify-content-between align-items-center mt-3">
 							<span class="h5 mb-0 text-primary">@item.Price.ToString("C")</span>
-							<button class="btn btn-outline-primary">
-								<i class="fas fa-shopping-cart me-2"></i>Add to Cart
+							<button onclick="addToCart(@item.Id)" class="btn btn-outline-primary">
+								<i class="bi bi-bag-fill me-2"></i>Add to Cart
 							</button>
 						</div>
 					</div>
@@ -103,6 +103,16 @@
 	document.querySelectorAll('input[name="CatalogIds"]').forEach(checkbox => {
 		checkbox.addEventListener('change', updateButtonText);
 	});
+
+	function addToCart(catalogItemId) {
+		fetch('/Cart/AddToCart', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			body: `catalogItemId=${catalogItemId}&quantity=1`
+		});
+	}
 
 	function updateButtonText() {
 		const checkedBoxes = document.querySelectorAll('input[name="CatalogIds"]:checked');

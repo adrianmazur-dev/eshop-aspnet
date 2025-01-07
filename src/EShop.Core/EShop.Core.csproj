@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Entities\Aggregates\" />
     <Folder Include="Entities\ValueObjects\" />
-    <Folder Include="Interfaces\Services\" />
   </ItemGroup>
 
   <ItemGroup>

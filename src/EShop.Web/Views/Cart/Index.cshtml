@@ -1,0 +1,36 @@
+﻿@model EShop.Core.Entities.Cart
+
+<h2>Your Cart</h2>
+
+<table class="table table-striped">
+	<thead class="thead-dark">
+	<tr>
+		<th>Item</th>
+		<th>Quantity</th>
+		<th>Price</th>
+		<th>Total</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var item in Model.Items)
+	{
+		<tr>
+			<td>@item.CatalogItem.Name</td>
+			<td>@item.Quantity</td>
+			<td>@item.CatalogItem.Price</td>
+			<td>@(item.Quantity * item.CatalogItem.Price)</td>
+			<td>
+				<form asp-action="RemoveFromCart" method="post" class="d-inline">
+					<input type="hidden" name="catalogItemId" value="@item.CatalogItemId" />
+					<button type="submit" class="btn btn-danger btn-sm">Remove</button>
+				</form>
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>
+
+<form asp-action="ClearCart" method="post">
+	<button type="submit" class="btn btn-warning">Clear Cart</button>
+</form>

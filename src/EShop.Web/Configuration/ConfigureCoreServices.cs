@@ -16,6 +16,9 @@ public static class ConfigureCoreServices
         services.AddScoped<ICatalogItemService, CatalogItemService>();
         services.AddScoped<ICatalogService, CatalogService>();
 
+        services.AddScoped<ICartRepository, CartRepository>();
+        services.AddScoped<ICartService, CartService>();
+
         return services;
     }
 }
