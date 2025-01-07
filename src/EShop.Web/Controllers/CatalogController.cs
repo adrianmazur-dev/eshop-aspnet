@@ -15,7 +15,7 @@ namespace EShop.Web.Controllers
             _catalogItemService = catalogItemService;
         }
 
-        public async Task<IActionResult> Index(CatalogFilterViewModel filter)
+        public async Task<IActionResult> Index(CatalogFilterViewModel filter, int? targetCatalogId = null)
         {
             var items = await _catalogItemService.GetAllAsync();
             var catalogs = await _catalogService.GetAllAsync();
@@ -25,9 +25,15 @@ namespace EShop.Web.Controllers
                 items = items.Where(i => i.Name.Contains(filter.SearchName, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
+            if (targetCatalogId.HasValue)
+            {
+                filter.CatalogIds.Add(targetCatalogId.Value);
+            }
+
             if (filter.CatalogIds.Count > 0)
             {
-                items = items.Where(i => filter.CatalogIds.Contains(i.CatalogId)).ToList();
+                var selectedCatalogs = catalogs.Where(c => filter.CatalogIds.Contains(c.Id)).SelectMany(c => c.GetAllChildCatalogIds());
+                items = items.Where(i => selectedCatalogs.Contains(i.CatalogId)).ToList();
             }
 
             if (filter.MinPrice.HasValue)

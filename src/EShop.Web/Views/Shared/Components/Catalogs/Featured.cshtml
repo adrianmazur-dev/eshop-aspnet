@@ -1,4 +1,5 @@
-﻿@model IEnumerable<EShop.Core.Entities.Catalog>
+﻿@using EShop.Web.ViewModels
+@model IEnumerable<EShop.Core.Entities.Catalog>
 @{
 	var limit = 4;
 }
@@ -21,7 +22,7 @@
 				@* <i class="bi bi-trophy"></i> *@
 			</div>
 			<h3 class="category-title">@catalog.Name</h3>
-			<a href="@Url.Action("Index", "Catalog")" class="stretched-link"></a>
+			<a href="@Url.Action("Index", "Catalog", new { targetCatalogId = @catalog.Id })" class="stretched-link"></a>
 		</div>
 	</div>
 }

@@ -14,4 +14,16 @@ public class Catalog : BaseEntity
 
     public ICollection<Catalog> SubCatalogs { get; set; } = new List<Catalog>();
     public ICollection<CatalogItem> Items { get; set; } = new List<CatalogItem>();
+
+    public List<int> GetAllChildCatalogIds()
+    {
+        var ids = new List<int> { Id };
+
+        foreach (var subCatalog in SubCatalogs)
+        {
+            ids.AddRange(subCatalog.GetAllChildCatalogIds());
+        }
+
+        return ids;
+    }
 }

@@ -1,0 +1,37 @@
+﻿.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: -30%;
+    left: 100%;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-submenu .dropdown-toggle::after {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -4px;
+}
+
+.multi-column {
+    min-width: 400px;
+}
+
+.multi-column .row {
+    margin: 0;
+    padding: 10px;
+}
+
+.multi-column .list-unstyled {
+    margin-bottom: 0;
+}
+
+.multi-column .dropdown-item {
+    padding: .25rem 1.5rem;
+}

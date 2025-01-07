@@ -15,7 +15,7 @@
 	@if (catalog.SubCatalogs.Any())
 	{
 		<li class="dropdown-submenu dropend">
-			<a class="dropdown-item dropdown-toggle" href="@Url.Action("Index", "Catalog")">
+			<a class="dropdown-item dropdown-toggle" href="@Url.Action("Index", "Catalog", new { targetCatalogId = @catalog.Id })">
 				@catalog.Name
 			</a>
 			<ul class="dropdown-menu multi-column">
@@ -23,7 +23,8 @@
 					@foreach (var subCatalog in catalog.SubCatalogs)
 					{
 						<ul class="col-md-6 list-unstyled">
-							<li><a class="dropdown-item" href="@Url.Action("Index", "Catalog")">
+							<li>
+								<a class="dropdown-item" href="@Url.Action("Index", "Catalog", new { targetCatalogId = @subCatalog.Id })">
 								@subCatalog.Name
 							</a></li>
 						</ul>
@@ -35,7 +36,7 @@
 	else
 	{
 		<li>
-			<a class="dropdown-item" href="@Url.Action("Index", "Catalog")">
+			<a class="dropdown-item" href="@Url.Action("Index", "Catalog", new { targetCatalogId = @catalog.Id })">
 				@catalog.Name
 			</a>
 		</li>
