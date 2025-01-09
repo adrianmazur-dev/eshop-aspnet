@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    justify-content: space-between;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -55,4 +56,3 @@ body {
     backdrop-filter: blur(10px);
     margin: 2rem 0;
 }
-
