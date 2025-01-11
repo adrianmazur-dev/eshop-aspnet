@@ -116,7 +116,5 @@ Projekt został podzielony na trzy główne warstwy, zgodnie z zasadami Clean Ar
 3. **Administrator** - pełny dostęp do systemu
 
 ### Zabezpieczenia
-- Autoryzacja oparta o JWT
 - Hasła szyfrowane zgodnie ze standardami bezpieczeństwa
-- Ochrona przed atakami CSRF
 - Walidacja danych wejściowych (po stronie klienta i serwera)
